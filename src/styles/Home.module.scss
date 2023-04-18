@@ -37,3 +37,28 @@
 .error {
   color: $color-red;
 }
+
+.images {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.imagesRow {
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2em;
+  margin-bottom: 4em;
+
+  img {
+    display: block;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+}

@@ -9,6 +9,7 @@ import styles from '@/styles/Home.module.scss';
 
 export default function Home() {
   const [siteUrl, setSiteUrl] = useState();
+  const [siteImages, setSiteImages] = useState()
   const [error, setError] = useState();
 
   function handleOnChange() {
@@ -36,9 +37,10 @@ export default function Home() {
     await runTests();
   }
 
-  async function runTests() {
-    // Run tests here
-  }
+  useEffect(() => {
+    if ( !siteUrl ) return;
+    // Scrape site here!
+  }, [siteUrl]);
 
   return (
     <Layout>
@@ -47,11 +49,37 @@ export default function Home() {
           <h1>Test your website!</h1>
           <form className={styles.form} onSubmit={handleOnSubmit}>
             <input className={styles.input} type="text" name="url" onChange={handleOnChange} />
-            <Button className={styles.button}>Sign Up</Button>
+            <Button className={styles.button}>Test</Button>
           </form>
           {siteUrl && <p>Testing { siteUrl }</p>}
           {!siteUrl && !error && <p>Enter your website URL above to get started!</p>}
           {error && <p className={styles.error}>{ error }</p>}
+        </Container>
+      </Section>
+      <Section>
+        <Container>
+          <ul className={styles.images}>
+            <li className={styles.imagesRow}>
+              <div className={styles.imageOriginal}>
+                <img width="1200" height="799" src="https://images.unsplash.com/photo-1526666923127-b2970f64b422?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="Original" />
+                <h3>Original</h3>
+                <ul>
+                  <li>Format: -</li>
+                  <li>Size: -</li>
+                  <li>co2: -</li>
+                </ul>
+              </div>
+              <div className={styles.imageOptimized}>
+                <img width="1200" height="799" src="https://images.unsplash.com/photo-1526666923127-b2970f64b422?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="Optimized" />
+                <h3>Optimized</h3>
+                <ul>
+                  <li>Format: -</li>
+                  <li>Size: -</li>
+                  <li>co2: -</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
         </Container>
       </Section>
     </Layout>

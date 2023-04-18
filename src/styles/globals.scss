@@ -25,6 +25,11 @@ p {
   line-height: 1.45;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .sr-only {
   display: block;
   overflow: hidden;
