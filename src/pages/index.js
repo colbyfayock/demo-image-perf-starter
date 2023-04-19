@@ -33,8 +33,6 @@ export default function Home() {
     }
 
     setSiteUrl(url);
-
-    await runTests();
   }
 
   useEffect(() => {
